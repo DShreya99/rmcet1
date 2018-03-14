@@ -1,0 +1,76 @@
+import java.sql.*;
+
+
+class InsertRecord
+{
+     public static void main(String args[]) throws ClassNotFoundException,SQLException
+     {
+
+         Connection c=null;
+         Statement s=null;
+
+
+        //Load the dirver
+        Class.forName("oracle.jdbc.OracleDriver");
+
+       //establish connection
+
+        c=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","password");
+
+      s=c.createStatement();
+
+   int i=s.executeUpdate("insert into student(RollNo,Name) values(11,'Ranjit')");
+
+   System.out.println(i+" row inserted");
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CallableStatement cs=c.prepareCall("call pro1(?,?)");
+         cs.setInt(1,1);
+         cs.registerOutParameter(2,java.sql.Types.VARCHAR);
+         
+         cs.execute();
+ String empname=cs.getString(2);
+         System.out.println(empname);
+ResultSetMetaData rm=null;
+		try
+		{
+			
+			Class.forName("oracle.jdbc.OracleDriver");
+			c=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","password");
+			System.out.println("ok");
+              s=   c.createStatement();
+			rs=s.executeQuery("Select * from emp");
+			rm=rs.getMetaData();
+			
+			System.out.println("col count "+rm.getColumnCount());
+			
+			System.out.println("col count "+rm.getColumnName(1));
+			System.out.println("col count "+rm.getColumnName(2));
+		
+*/
